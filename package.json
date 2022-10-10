@@ -1,0 +1,42 @@
+{
+  "name": "disney",
+  "version": "1.0.0",
+  "description": "Alkemy challenge app",
+  "main": "index.js",
+  "author": "Facundo Bustos Goainochea",
+  "license": "MIT",
+  "dependencies": {
+    "@sendgrid/mail": "7.7.0",
+    "bcrypt": "5.1.0",
+    "cors": "2.8.5",
+    "debug": "4.3.4",
+    "express": "4.18.1",
+    "express-winston": "4.2.0",
+    "multer": "1.4.5-lts.1",
+    "sequelize": "6.24.0",
+    "sharp": "0.31.1",
+    "sqlite3": "5.1.2",
+    "uuid": "9.0.0",
+    "uuid-validate": "0.0.3",
+    "winston": "3.8.2"
+  },
+  "scripts": {
+    "start": "tsnd --respawn ./src/index.ts"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "5.0.0",
+    "@types/cors": "2.8.12",
+    "@types/debug": "4.1.7",
+    "@types/express": "4.17.14",
+    "@types/multer": "1.4.7",
+    "@types/sharp": "0.31.0",
+    "@types/uuid": "8.3.4",
+    "@types/uuid-validate": "0.0.1",
+    "eslint": "8.24.0",
+    "eslint-plugin-json": "3.1.0",
+    "prettier": "2.7.1",
+    "source-map-support": "0.5.21",
+    "ts-node-dev": "2.0.0",
+    "typescript": "4.8.4"
+  }
+}
