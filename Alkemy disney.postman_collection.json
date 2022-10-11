@@ -1,0 +1,852 @@
+{
+	"info": {
+		"_postman_id": "3ee67b76-c098-4940-9736-80af2285af69",
+		"name": "Alkemy disney",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17514570"
+	},
+	"item": [
+		{
+			"name": "Gender",
+			"item": [
+				{
+					"name": "Create Genre",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{envUserToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "name",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/genre",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"genre"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get image of genre",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/genres/images/:static",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"genres",
+								"images",
+								":static"
+							],
+							"variable": [
+								{
+									"key": "static",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List genres",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{envUserToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/genres",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"genres"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"admin@hotmail.com\",\n    \"password\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/auth/register",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get token of User",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"admin@hotmail.com\",\n    \"password\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/auth/login",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Character",
+			"item": [
+				{
+					"name": "Create Character",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{envUserToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "age",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "weight",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "history",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/characters",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"characters"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get image of character",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/characters/images/:static",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"characters",
+								"images",
+								":static"
+							],
+							"variable": [
+								{
+									"key": "static",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update character",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{envUserToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "age",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "weight",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "history",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/characters/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"characters",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List characters",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{envUserToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/characters",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"characters"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete character",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{envUserToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/characters/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"characters",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Details character",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{envUserToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/characters/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"characters",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List characters by name",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{envUserToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/characters?name=",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"characters"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List characters by age",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{envUserToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/characters?age=",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"characters"
+							],
+							"query": [
+								{
+									"key": "age",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List characters by movie",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{envUserToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/characters?movies=",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"characters"
+							],
+							"query": [
+								{
+									"key": "movies",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List characters by weight",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{envUserToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/characters?weight=",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"characters"
+							],
+							"query": [
+								{
+									"key": "weight",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Movie",
+			"item": [
+				{
+					"name": "Create movie",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{envUserToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "creationDate",
+									"value": "mm-dd-yyyy",
+									"type": "text"
+								},
+								{
+									"key": "score",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "genresID",
+									"value": "id,id,id",
+									"type": "text"
+								},
+								{
+									"key": "charactersID",
+									"value": "id,id,id",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/movies",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get image of movie",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/movies/images/:static",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movies",
+								"images",
+								":static"
+							],
+							"variable": [
+								{
+									"key": "static",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List movies",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{envUserToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/movies",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Details movie",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{envUserToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/movies/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movies",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete movie",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{envUserToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/movies/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movies",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update movie",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{envUserToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "creationDate",
+									"value": "mm-dd-yyyy",
+									"type": "text"
+								},
+								{
+									"key": "score",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "genresID",
+									"value": "id,id,id",
+									"type": "text"
+								},
+								{
+									"key": "charactersID",
+									"value": "id,id,id",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/movies/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movies",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List movies by Date ASC/DESC",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{envUserToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/movies?order=asc or desc",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movies"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "asc or desc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List movies by genre",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{envUserToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/movies?genre=",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movies"
+							],
+							"query": [
+								{
+									"key": "genre",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List movies by title",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{envUserToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/movies?title=",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movies"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

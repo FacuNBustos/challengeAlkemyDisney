@@ -1,7 +1,7 @@
 import { Application } from "express";
+import CommonRoutes from "./Common.routes";
 import createUserAction from "../actions/users/create.user.action";
 import loginUserAction from "../actions/users/login.user.action";
-import CommonRoutes from "./Common.routes";
 
 export default class UserRoutes extends CommonRoutes{
     constructor(

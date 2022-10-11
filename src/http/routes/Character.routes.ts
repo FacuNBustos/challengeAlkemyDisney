@@ -1,11 +1,11 @@
 import express, { Application } from "express";
+import CommonRoutes from "./Common.routes";
 import multer from "multer";
 import createCharacterAction from "../actions/characters/create.character.action";
 import deleteCharacterAction from "../actions/characters/delete.character.action";
 import findOneByIdCharacterAction from "../actions/characters/findOneById.character.action";
 import listCharacterAction from "../actions/characters/list.character.action";
 import updateCharacterAction from "../actions/characters/update.character.action";
-import CommonRoutes from "./Common.routes";
 
 const upload = multer({ storage: multer.memoryStorage() });
 

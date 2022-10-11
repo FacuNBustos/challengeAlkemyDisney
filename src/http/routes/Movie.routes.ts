@@ -1,11 +1,11 @@
 import express, { Application } from "express";
+import CommonRoutes from "./Common.routes";
 import multer from "multer";
 import createMovieAction from "../actions/movies/create.movie.action";
 import deleteMovieAction from "../actions/movies/delete.movie.action";
 import findOneByIdMovieAction from "../actions/movies/findOneById.movie.action";
 import listMovieAction from "../actions/movies/list.movie.action";
 import updateMovieAction from "../actions/movies/update.movie.action";
-import CommonRoutes from "./Common.routes";
 
 const upload = multer({ storage: multer.memoryStorage() });
 
