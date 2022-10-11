@@ -7,8 +7,10 @@ export default new class CreateGenreAction {
     async run(req: Request, res: Response) {
         try {
             try {
-
-                await validateService.sessionToken(req.headers.authorization);
+                await validateService.sessionToken(req.headers.authorization)
+                .catch((error:any) => {
+                    return res.status(401).json({message: error.message})
+                });
 
                 const command = new CreateGenreCommand(
                     req.body.name,
@@ -18,12 +20,12 @@ export default new class CreateGenreAction {
                 await createGenreHandler.execute(command);
                     
             } catch (error: any) {
-                return res.status(401).json({ message: error.message });
+                return res.status(400).json({ message: error.message });
             }
 
             return res.status(201).json({message: "Genre has been created"});
         } catch (error:any ){
-            return res.status(400).json({message: error.message});
+            return res.status(404).json({message: error.message});
         }
     }
 }

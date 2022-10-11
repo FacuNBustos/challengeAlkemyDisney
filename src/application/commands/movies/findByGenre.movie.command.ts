@@ -6,7 +6,9 @@ export default class FindByGenreMovieCommand {
     constructor(
         genre: any
     ) {
-        if (typeof genre !== "string" || !validate(genre)) throw new Error("invalid genre query");
+        if (typeof genre !== "string") throw new Error("Invalid query params");
+
+        if (!validate(genre)) throw new Error("Invalid genre id");
 
         this.genre = genre;
     };

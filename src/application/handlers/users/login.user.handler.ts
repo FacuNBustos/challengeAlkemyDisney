@@ -14,7 +14,7 @@ export default new class LoginUserHandler {
         if (!savedUser) throw new Error("Nonexistent user");
 
         if (!hashService.HashCompare(command.getPassword(), savedUser.getPassword())) {
-            throw new Error("wrong password");
+            throw new Error("Wrong password");
         };
 
         const sessionCommand = new CreateSessionCommand(

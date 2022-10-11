@@ -6,16 +6,22 @@ import validateService from "../../../infraestructure/services/validate.service"
 export default new class FindOneByIdCharacterAction {
     async run(req: Request, res: Response) {
         try {
+            try {
+                await validateService.sessionToken(req.headers.authorization)
+                .catch((error:any) => {
+                    return res.status(401).json({message: error.message})
+                });
 
-            await validateService.sessionToken(req.headers.authorization);
+                const command = new FindOneByIdCharacterCommand(req.params.id);
+                var characterDetails = await findOneByIdCharacterHandler.execute(command);
 
-            const command = new FindOneByIdCharacterCommand(req.params.id);
-            
-            const characterDetails = await findOneByIdCharacterHandler.execute(command);
+            } catch(error: any) {
+                return res.status(400).json({message: error.message});
+            };
 
             return res.status(200).json(characterDetails);
         } catch(error: any) {
-            return res.status(400).json({ message: error.message });
+            return res.status(404).json({ message: error.message });
         }
     }
 }

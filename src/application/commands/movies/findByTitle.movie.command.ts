@@ -6,7 +6,9 @@ export default class FindByTitleMovieCommand {
     constructor(
         title: any
     ) {
-        if (typeof title !== "string" || !validateService.fullname(title)) throw new Error("invalid title");
+        if (typeof title !== "string") throw new Error("Invalid query params");
+
+        if (!validateService.fullname(title)) throw new Error("Invalid title");
 
         this.title = title;
     };

@@ -7,7 +7,7 @@ export default class DeleteCharacterCommand {
         characterID: string
     ) {
         if (!characterID || !validate(characterID)) {
-            throw new Error("Id sintax error");
+            throw new Error("Invalid character id");
         };
 
         this.characterID = characterID;

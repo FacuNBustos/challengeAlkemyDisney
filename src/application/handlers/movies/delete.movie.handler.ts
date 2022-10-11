@@ -7,7 +7,7 @@ import fs from 'fs';
 export default new class DeleteMovieHandler {
     async execute(command: DeleteMovieCommand) {
         const movieSaved = await movieRepository.findOneById(command.getMovieID());
-        if (!movieSaved) throw new Error("the movie not exist");
+        if (!movieSaved) throw new Error("The movie not exist");
 
         await movieRepository.deleteById(command.getMovieID());
         await charactersMovieRepository.deleteByMovieID(command.getMovieID());

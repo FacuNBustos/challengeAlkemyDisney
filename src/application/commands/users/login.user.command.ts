@@ -9,7 +9,7 @@ export default class LoginUserCommand {
         password: string
     ) {
         if (!validateService.email(email)) {
-            throw new Error("The email is invalid");
+            throw new Error("Invalid email");
         };
 
         if (!password || password.length < 5) {

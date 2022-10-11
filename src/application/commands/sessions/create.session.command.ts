@@ -7,7 +7,7 @@ export default class CreateSessionCommand {
         userID: string
     ) {
         if(!validate(userID)){
-            throw new Error("Id is not validate");
+            throw new Error("Invalid user id");
         };
 
         this.userID = userID;

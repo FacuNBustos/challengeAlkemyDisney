@@ -13,7 +13,7 @@ export default new class UpdateMovieHandler {
     async execute(command: UpdateMovieCommand) {
         
         const movieSaved = await movieRepository.findOneById(command.getId());
-        if (!movieSaved) throw new Error("movie is missing");
+        if (!movieSaved) throw new Error("Movie is missing");
         
         for (let i = 0; i < command.getCharactersID().length; i++) {
             const characterSaved = await characterRepository.findOneById(command.getCharactersID()[i]);

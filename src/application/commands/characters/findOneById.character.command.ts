@@ -7,7 +7,7 @@ export default class FindOneByIdCharacterCommand {
         characterID: string
     ) {
         if (!characterID || !validate(characterID)) {
-            throw new Error("Invalid identify");
+            throw new Error("Invalid character id");
         };
 
         this.characterID = characterID;

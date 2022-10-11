@@ -6,10 +6,10 @@ export default class FindByMovieCharacterCommand {
     constructor(
         movieID: any
     ) {
-        if (typeof movieID !== 'string') throw new Error("invalid query params");
+        if (typeof movieID !== 'string') throw new Error("nvalid query params");
 
         if (!validate(movieID)) {
-            throw new Error("invalid movie id");
+            throw new Error("Invalid movie id");
         };
         this.movieID = movieID;
     };

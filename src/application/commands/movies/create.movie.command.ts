@@ -37,13 +37,13 @@ export default class CreateMovieCommand {
 
         genresID.forEach((elem) => {
             if (!validate(elem)) {
-                throw new Error("Invalid id of the genders");
+                throw new Error("Invalid genre id");
             }
         });
 
         charactersID.forEach((elem) => {
             if (!validate(elem)) {
-                throw new Error("Invalid id of the characters");
+                throw new Error("Invalid character id");
             }
         });
 

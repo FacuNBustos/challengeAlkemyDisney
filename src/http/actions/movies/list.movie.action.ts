@@ -11,34 +11,52 @@ import validateService from "../../../infraestructure/services/validate.service"
 export default new class ListMoviesAction {
     async run(req: Request, res: Response) {
         try {
-            await validateService.sessionToken(req.headers.authorization);
+            await validateService.sessionToken(req.headers.authorization)
+            .catch((error:any) => {
+                return res.status(401).json({message: error.message})
+            });
 
             if (req.query.title) {
-                const command = new FindByTitleMovieCommand(req.query.title);
-                const movies = await findByTitleMovieHandler.execute(command);
+                try {
+                    const command = new FindByTitleMovieCommand(req.query.title);
+                    const movies = await findByTitleMovieHandler.execute(command);
 
-                return res.status(200).json(movies);
+                    return res.status(200).json(movies);
+                } catch(error: any) {
+                    return res.status(400).json({message: error.message})
+                }
             };
 
             if (req.query.genre) {
-                const command = new FindByGenreMovieCommand(req.query.genre);
-                const movies = await findByGenreMovieHandler.execute(command);
+                try {
+                    const command = new FindByGenreMovieCommand(req.query.genre);
+                    const movies = await findByGenreMovieHandler.execute(command);
 
-                return res.status(200).json(movies);
+                    return res.status(200).json(movies);
+                } catch(error: any) {
+                    return res.status(400).json({message: error.message})
+                }
             }
 
             if (req.query.order) {
-                const command = new FindByDateOrderMovieCommand(req.query.order);
-                const movies = await findByDateOrderMovieHandler.execute(command);
+                try {
+                    const command = new FindByDateOrderMovieCommand(req.query.order);
+                    const movies = await findByDateOrderMovieHandler.execute(command);
 
-                return res.status(200).json(movies);
+                    return res.status(200).json(movies);
+                } catch(error: any) {
+                    return res.status(400).json({message: error.message})
+                }
             };
 
-            const movies = await listMovieHandler.execute();
+            const movies = await listMovieHandler.execute()
+            .catch((error:any) => {
+                return res.status(400).json({message: error.message})
+            });
 
             return res.status(200).json(movies);
         } catch(error:any) {
-            return res.status(200).json({message: error.message})
+            return res.status(404).json({message: error.message})
         }
     }
 }

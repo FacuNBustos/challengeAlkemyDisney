@@ -21,7 +21,7 @@ export default class UpdateMovieCommand {
         genresID: string[],
         charactersID: string[]
     ) {
-        if (!validate(id)) throw new Error("invalid id");
+        if (!validate(id)) throw new Error("Invalid movie id");
 
         if (!validateService.fullname(title) || title.length < 5) {
             throw new Error("Invalid title");
@@ -41,13 +41,13 @@ export default class UpdateMovieCommand {
 
         genresID.forEach((elem) => {
             if (!validate(elem)) {
-                throw new Error("Invalid id of the genders");
+                throw new Error("Invalid genre id");
             }
         });
 
         charactersID.forEach((elem) => {
             if (!validate(elem)) {
-                throw new Error("Invalid id of the characters");
+                throw new Error("Invalid character id");
             }
         });
 

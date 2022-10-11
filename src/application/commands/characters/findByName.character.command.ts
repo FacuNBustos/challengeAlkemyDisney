@@ -6,10 +6,10 @@ export default class FindByNameCharacterCommand {
     constructor(
         name: any
     ) {
-        if (typeof name !== 'string') throw new Error("invalid query params");
+        if (typeof name !== 'string') throw new Error("Invalid query params");
 
         if (!validateService.fullname(name)) {
-            throw new Error("Name sintax error");
+            throw new Error("Invalid name");
         };
         this.name = name;
     };

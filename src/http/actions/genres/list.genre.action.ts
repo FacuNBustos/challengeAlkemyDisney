@@ -5,13 +5,21 @@ import validateService from "../../../infraestructure/services/validate.service"
 export default new class ListGenreAction {
     async run(req: Request, res: Response) {
         try {
-            await validateService.sessionToken(req.headers.authorization);
+            try {
+                await validateService.sessionToken(req.headers.authorization)
+                .catch((error:any) => {
+                    return res.status(401).json({message: error.message})
+                });
 
-            const genres = await listGenreHandler.execute();
+                var genres = await listGenreHandler.execute();
+            
+            } catch(error: any) {
+                return res.status(400).json({message: error.message})
+            };
 
             return res.status(200).json(genres);
         } catch(error: any) {
-            return res.status(400).json({message: error.message});
+            return res.status(404).json({message: error.message});
         } 
     }
 }

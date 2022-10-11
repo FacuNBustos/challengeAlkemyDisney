@@ -7,7 +7,7 @@ export default class FindOneByIdMovieCommand {
         movieID: string
     ) {
         if (!validate(movieID)) {
-            throw new Error("invalida movie id");
+            throw new Error("Invalida movie id");
         };
 
         this.movieID = movieID;

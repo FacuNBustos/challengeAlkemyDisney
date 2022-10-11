@@ -5,18 +5,21 @@ import loginUserHandler from "../../../application/handlers/users/login.user.han
 export default new class LoginUserAction {
     async run(req: Request, res: Response) {
         try {
-            const command = new LoginUserCommand(
-                req.body.email,
-                req.body.password
-            );
+            try {
+                const command = new LoginUserCommand(
+                    req.body.email,
+                    req.body.password
+                );
+
+                var session = await loginUserHandler.execute(command)
+
+            } catch (error: any) {
+                return res.status(400).json({message: error.message})
+            };
             
-            const session = await loginUserHandler.execute(command);
-
-            return res.status(201).json({token: session.getToken()})
-
+            return res.status(200).json({token: session.getToken()});
         }catch(error: any){
             return res.status(404).json({message: error.message})
         }
-
     }
 }

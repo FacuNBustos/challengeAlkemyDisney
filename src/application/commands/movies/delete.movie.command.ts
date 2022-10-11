@@ -7,7 +7,7 @@ export default class DeleteMovieCommand {
         movieID: string
     ) {
         if (!validate(movieID)) {
-            throw new Error("invalid movie id");
+            throw new Error("Invalid movie id");
         };
 
         this.movieID = movieID;

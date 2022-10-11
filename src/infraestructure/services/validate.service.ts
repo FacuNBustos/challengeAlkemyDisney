@@ -21,11 +21,11 @@ export default new class ValidateService {
 
     async sessionToken(token: Undefinable<string>): Promise<void> {
         
-        if (!token || !validate(token)) throw new Error("invalid token");
+        if (!token || !validate(token)) throw new Error("Invalid Token");
 
         const tokenSaved = await sessionRepository.findOneByToken(token);
         
-        if (!tokenSaved) throw new Error("Nonexistent token");
+        if (!tokenSaved) throw new Error("Invalid Token");
     };
     
 }

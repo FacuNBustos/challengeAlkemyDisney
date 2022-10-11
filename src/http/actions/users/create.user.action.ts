@@ -10,16 +10,16 @@ export default new class CreateUserAction {
                     req.body.email,
                     req.body.password
                 );
-                
-                await createUserHandler.execute(command);
-                
+
+                await createUserHandler.execute(command)
+
             } catch (error: any) {
-                return res.status(404).json({message: error.message})
+                return res.status(400).json({message: error.message})
             };
-            
-            return res.status(200).json({ message: "User has been created"});
+
+            return res.status(201).json({ message: "User has been created"});
         }catch (error: any) {
-            return res.status(400).json({message: error.message})
+            return res.status(404).json({message: error.message})
         }
     }
 }

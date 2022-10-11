@@ -7,8 +7,10 @@ export default new class CreateChacterAction {
     async run(req: Request, res: Response) {
         try {
             try {
-
-                await validateService.sessionToken(req.headers.authorization);
+                await validateService.sessionToken(req.headers.authorization)
+                .catch((error) => {
+                    return res.status(401).json({message: error})
+                });
 
                 const command = new CreateCharacterCommand(
                     req.body.name,
@@ -17,16 +19,15 @@ export default new class CreateChacterAction {
                     req.body.history,
                     req.file
                 );
-
                 await createCharacterHandler.execute(command);
 
             } catch (error: any) {
-                return res.status(401).json({message: error.message});
-            }
+                return res.status(400).json({message: error.message});
+            };
 
             return res.status(201).json({message: "Character has been created"});
         } catch (error: any) {
-            return res.status(400).json({message: error.message});
+            return res.status(404).json({message: error.message});
         }
     }
 }

@@ -6,10 +6,10 @@ export default class FindByWeightCharacterCommand {
     constructor(
         weight: any
     ) {
-        if (typeof weight !== 'string') throw new Error("invalid query params");
+        if (typeof weight !== 'string') throw new Error("Invalid query params");
         
         if (!weight || !validateService.number(weight) || Number(weight) <= 0) {
-            throw new Error("invalid weight");
+            throw new Error("Invalid weight");
         };
         this.weight = Number(weight)
     };

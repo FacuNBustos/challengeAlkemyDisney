@@ -10,7 +10,7 @@ export default class FindByAgeCharacterCommand {
         if (typeof age !== 'string') throw new Error("invalid query params");
         
         if (!age || !validateService.number(age) || Number(age) <= 0) {
-            throw new Error("invalid age");
+            throw new Error("Invalid age");
         };
         this.age = Number(age);
     };
