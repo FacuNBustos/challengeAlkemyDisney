@@ -6,7 +6,7 @@ exponer la información para que cualquier frontend pueda consumirla.
 
 ## Diseño de base de datos
 
-![db_diagram]('./public/readme/db.png')
+![db_diagram](./public/readme/db.png)
 
 # Dependencias de Produccion
 
