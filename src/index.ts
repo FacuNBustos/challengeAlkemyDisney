@@ -32,6 +32,8 @@ const routes: Array<CommonRoutes> = [];
 app.use(cors());
 app.use(express.json());
 
+
+
 routes.push(new UserRoutes(app));
 routes.push(new CharacterRoutes(app));
 routes.push(new GenreRoutes(app));
