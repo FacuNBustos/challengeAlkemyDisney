@@ -13,7 +13,6 @@ import configuration from '../config';
 
 const app: express.Application = express();
 
-
 const loggerOptions: expressWinston.LoggerOptions = {
   transports: [new winston.transports.Console()],
   format: winston.format.combine(
@@ -38,11 +37,10 @@ routes.push(new CharacterRoutes(app));
 routes.push(new GenreRoutes(app));
 routes.push(new MovieRoutes(app));
 
-
 commonSqlite.getConnection().sync().then(()=> log("db is ready"));
-app.listen(configuration.getPort(), () => {
+app.listen(configuration.getHost(), () => {
   routes.forEach((route: CommonRoutes) => {
     log(`Routes configured for ${route.getName()}`);
   });
-  log('Server listening on port 3000');
+  log('Server listening on port ' + configuration.getHost());
 });
